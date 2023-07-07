@@ -12,15 +12,12 @@ def minOperations(n):
     If n is impossible to achieve, returns 0.
     """
     if n == 1:
-        return 0  # No operations needed for n=1
-
-    dp = [0] * (n + 1)  # Initialize the array to store minimum operations
-
+        return 0 
+    dp = [0] * (n + 1) 
     for i in range(2, n + 1):
-        dp[i] = i  # Initialize with a default value
+        dp[i] = i
         for j in range(2, i):
             if i % j == 0:
                 dp[i] = dp[j] + (i // j)
                 break
-
     return dp[n]
